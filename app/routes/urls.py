@@ -8,7 +8,7 @@ router = APIRouter()
 
 @router.post("/shorten", response_model=URLResponse)
 async def shorten_url(url_create: URLCreate):
-    url_entry = await create_url(url_create.url)
+    url_entry = await create_url(url_create)
     return url_entry
 
 

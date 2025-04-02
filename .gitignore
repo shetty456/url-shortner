@@ -1,0 +1,41 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+.venv/
+.env
+
+# Poetry files
+poetry.lock
+
+# SQLite database
+shortener.db
+shortener.db-journal
+
+# Logs
+logs/
+*.log
+
+# IDE / Editor specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Python cache files
+*.egg-info/
+dist/
+build/
+
+# Uvicorn / FastAPI cache
+debug.log
+
+# Tortoise ORM migrations
+aerich.ini
+migrations/
+
+# Docker
+.dockerignore
+docker-compose.yml
