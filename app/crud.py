@@ -2,7 +2,7 @@ from app.models import URL
 from app.schemas import URLCreate
 import random
 import string
-from fastapi import Response
+from fastapi import HTTPException
 
 
 def generate_short_code():
@@ -11,6 +11,9 @@ def generate_short_code():
 
 async def create_url(url_create: URLCreate):
     short_code = generate_short_code()
+    existing_url = await URL.filter(url=url_create.url).first()
+    if existing_url:
+        raise HTTPException(status_code=400, detail="URL already exists.")
     url_entry = await URL.create(url=url_create.url, short_code=short_code)
     return url_entry
 

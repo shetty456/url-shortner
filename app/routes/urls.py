@@ -19,8 +19,7 @@ async def retrieve_url(short_code: str,response:Response):
     if not url_entry:
         raise HTTPException(status_code=404, detail="Short URL not found")
     
-    url_entry.access_count+=1
-    await url_entry.save()
+   
     response.status_code  
     return url_entry
 
