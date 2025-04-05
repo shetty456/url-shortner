@@ -13,7 +13,7 @@ async def create_url(url_create: URLCreate):
     url_entry = await URL.create(url=url_create.url, short_code=short_code)
     return url_entry
 
-
+@cache(expire=60)
 async def get_url(short_code: str):
     return await URL.get_or_none(short_code=short_code)
 
