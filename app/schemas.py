@@ -10,4 +10,5 @@ class URLResponse(BaseModel):
     short_code: str
     created_at: datetime
     updated_at: datetime
-    access_count: int
+    
+    

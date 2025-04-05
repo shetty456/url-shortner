@@ -10,6 +10,9 @@ def generate_short_code():
 
 async def create_url(url_create: URLCreate):
     short_code = generate_short_code()
+    existing_url = await URL.filter(url=url_create.url).first()
+    if existing_url:
+        raise HTTPException(status_code=400, detail="URL already exists.")
     url_entry = await URL.create(url=url_create.url, short_code=short_code)
     return url_entry
 
@@ -18,7 +21,16 @@ async def get_url(short_code: str):
     return await URL.get_or_none(short_code=short_code)
 
 
-# TODO: Implement update_url()
+#Implement update_url()
+async def update_url(short_code: str, url_create: URLCreate):
+
+    new_url_entry = await URL.get(short_code=short_code)
+    if new_url_entry:
+        new_url_entry.url = str(url_create.url)
+        await new_url_entry.save()
+    return new_url_entry
+
+
 # TODO: Implement delete_url()
 
 async def delete_url (short_code:str):
