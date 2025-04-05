@@ -45,5 +45,5 @@ async  def delete_url_route(short_code:str):
 async  def  status_url_route(short_code: str):
     url_status = await get_url_status (short_code)
     if not  url_status:
-        raise HTTPException(status_code=404,detail="short  URL not fond")
+        raise HTTPException(status_code=404,detail="short  URL not found")
     return url_status
