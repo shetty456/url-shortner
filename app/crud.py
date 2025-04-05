@@ -37,7 +37,7 @@ async def get_url_status(short_code:str):
         return None
     return{
         
-         "id": status.id,
+        "id": status.id,
         "url": status.url,
         "short_code": status.short_code,
         "created_at": status.created_at,
