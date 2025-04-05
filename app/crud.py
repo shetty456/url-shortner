@@ -3,7 +3,7 @@ from app.schemas import URLCreate
 import random
 import string
 from fastapi_cache.decorator import cache
-
+from fastapi import HTTPException
 def generate_short_code():
     return "".join(random.choices(string.ascii_letters + string.digits, k=6))
 

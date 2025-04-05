@@ -1,7 +1,7 @@
 # app/routes/urls.py
 from fastapi import APIRouter, HTTPException,Response
 from app.schemas import URLCreate, URLResponse
-from app.crud import create_url, get_url,delete_url,get_url_status
+from app.crud import create_url, get_url,delete_url,get_url_status,update_url
 
 router = APIRouter()
 
