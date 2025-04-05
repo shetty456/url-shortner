@@ -11,3 +11,4 @@ class URLResponse(BaseModel):
     created_at: datetime
     updated_at: datetime
     access_count: int
+    
