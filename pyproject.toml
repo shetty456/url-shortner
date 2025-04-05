@@ -6,9 +6,9 @@ authors = ["Sunil Hanamshetty <64653515+shetty456@users.noreply.github.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.13"
+python = "^3.12"
 fastapi = "^0.115.12"
-uvicorn = "^0.34.0"
+uvicorn = {extras = ["standard"], version = "^0.34.0"}
 tortoise-orm = "^0.24.2"
 aiohttp = "^3.11.16"
 
