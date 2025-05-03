@@ -10,49 +10,85 @@
 
 ## API Endpoints
 
-- `POST /shorten` - Shorten a URL -This endpoint allows you to shorten a URL.
-  {
+### 1. This endpoint allows you to shorten a URL.
+
+**Endpoint**: `POST /shorten`
+```{
   "url": "https://example.com"
-  }
-  Response Example:
-  {
+}
+```
+**Response**:
+
+```json
+{
   "id": 1,
   "url": "https://example.com",
   "short_code": "abc123",
   "created_at": "2025-04-05T12:34:56",
   "updated_at": "2025-04-05T12:34:56",
   "access_count": 0
-  }
+}
+```
 
-- `GET /shorten/{short_code}` - Retrieve original URL
-  This endpoint retrieves the original URL corresponding to a given shortened URL code. The access count for the URL is incremented each time this endpoint is accessed.
-  Response Example:
-  {
+### 2. Retrieve Original URL
+
+**Endpoint**: `GET /shorten/{short_code}`
+
+**Response**:
+
+```json
+{
   "id": 1,
   "url": "https://example.com",
   "short_code": "abc123",
   "created_at": "2025-04-05T12:34:56",
   "updated_at": "2025-04-05T12:34:56",
   "access_count": 1
-  }
+}
+```
 
-- TODO: Implement `PUT /shorten/{short_code}` - Update a short URL
-  This endpoint allows updating the original URL associated with a given shortcode.
+### 3. Update a Short URL
 
-- TODO: Implement `DELETE /shorten/{short_code}` - Delete a short URL
-  This endpoint deletes a shortened URL based on its shortcode.
+**Endpoint**: `GET /shorten/{short_code}`
 
-{"message": "URL with shortcode deleted successfully."}
+**Request Body**:
+{
+  "url": "https://new-example.com"
+}
 
-- TODO: Implement `GET /shorten/{short_code}/stats` - Retrieve URL statistics
-  """
-  This endpoint retrieves the status of a shortened URL, including information such as creation time, last updated time, and the access count.
-  ex:-{
+```json
+{
+  "id": 1,
+  "url": "https://new-example.com",
+  "short_code": "abc123",
+  "created_at": "2025-04-05T12:34:56",
+  "updated_at": "2025-05-05T12:34:56",
+  "access_count": 1
+}
+```
+
+### 4. Delete a Short URL
+**Endpoint**:`DELETE /shorten/{short_code}`
+**Request Body**:
+```json
+{
+  "message": "URL with shortcode deleted successfully."
+}
+```
+
+### 5. Retrieve URL Statistics
+
+**Endpoint**: `GET /shorten/{short_code}/stats`
+
+**Request Body**:
+
+```json
+{
   "id": 1,
   "url": "https://example.com",
   "short_code": "abc123",
   "created_at": "2025-04-05T12:34:56",
   "updated_at": "2025-04-05T12:34:56",
-  "access_count": 0
-  }
-
+  "access_count": 10
+}
+```
